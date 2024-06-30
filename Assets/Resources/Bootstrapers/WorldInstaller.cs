@@ -15,15 +15,26 @@ namespace Resources.Bootstrapers
 
         public override void InstallBindings()
         {
-            LoadingSave();
+            LoadingControlSystem();
+            //LoadingSave();
+            LoadingLevel();
+        
+//            _save.PlayerPosition = new Vector3(100, 100, 5);
+            //SaveManager.Save(_save);
+            //WorldLoader world = Container.InstantiateComponent<WorldLoader>(gameObject);
+        }
+
+        void LoadingControlSystem()
+        {
+            //Container.Bind<InputHandler>().AsSingle().NonLazy();
+        }
+        
+        void LoadingLevel()
+        {
             Player player = Container.InstantiatePrefabForComponent<Player>(playerPrefab, startPoint.position, Quaternion.identity, null);
             Container.Bind<Player>()
                 .FromInstance(player)
                 .AsSingle();
-        
-            _save.PlayerPosition = new Vector3(100, 100, 5);
-            SaveManager.Save(_save);
-            //WorldLoader world = Container.InstantiateComponent<WorldLoader>(gameObject);
         }
 
         void LoadingSave()

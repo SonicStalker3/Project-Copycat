@@ -1,4 +1,6 @@
+using System.Collections.Generic;
 using Interfaces;
+using Skills;
 using UnityEngine;
 using Zenject;
 
@@ -6,7 +8,7 @@ namespace Objects.Entities
 {
     public class Entity : Object, IEntity
     {
-        public string E_name;
+        public Dictionary<string, Ability> AbilitiesList =  new Dictionary<string, Ability>();
         [Inject]
         void Construct()
         {
@@ -23,12 +25,12 @@ namespace Objects.Entities
         
         }
 
-        public void Move()
+        public virtual void Move()
         {
             throw new System.NotImplementedException();
         }
 
-        public void GetDamage(int damage)
+        public virtual void GetDamage(int damage)
         {
             throw new System.NotImplementedException();
         }
