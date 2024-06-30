@@ -14,4 +14,5 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/WorldHandler.unity
     guid: cbf96e0773daa8445a8ecb84b04ac12d
-  m_configObjects: {}
+  m_configObjects:
+    com.unity.input.settings: {fileID: 11400000, guid: 1cb43c8179cd0d346ab8b149dcab983e, type: 2}

@@ -2,34 +2,6 @@
     "name": "PlayerControll",
     "maps": [
         {
-            "name": "UI",
-            "id": "4daec785-a34f-4307-887d-5a3614e4c855",
-            "actions": [
-                {
-                    "name": "New action",
-                    "type": "Button",
-                    "id": "207007ff-5478-4904-93f6-e677c96ff29f",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                }
-            ],
-            "bindings": [
-                {
-                    "name": "",
-                    "id": "7e106c0b-086e-45ce-b3da-3662d329cabc",
-                    "path": "",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "New action",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                }
-            ]
-        },
-        {
             "name": "Gameplay",
             "id": "9c63e630-40e0-48c1-9cdb-21f6d5e8dc8a",
             "actions": [
@@ -50,6 +22,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "Jump",
+                    "type": "Button",
+                    "id": "22d1fbea-48fe-497b-9034-c54d64b4c861",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Inventory",
@@ -73,6 +54,15 @@
                     "name": "SkillsTree",
                     "type": "Button",
                     "id": "e868b103-4542-45f4-abe2-d7600129a87f",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Attack",
+                    "type": "Button",
+                    "id": "953e65fe-86e1-47f4-b1d6-b6cb475343f3",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -176,6 +166,56 @@
                     "processors": "",
                     "groups": "Keyboard&Mouse",
                     "action": "SkillsTree",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "14bfb1cc-9b1f-4fb5-9a59-fc17ccac65ff",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Attack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b2fbb79f-2f46-40e5-a742-a3691134df7d",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "UI",
+            "id": "4daec785-a34f-4307-887d-5a3614e4c855",
+            "actions": [
+                {
+                    "name": "New action",
+                    "type": "Button",
+                    "id": "207007ff-5478-4904-93f6-e677c96ff29f",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "7e106c0b-086e-45ce-b3da-3662d329cabc",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "New action",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

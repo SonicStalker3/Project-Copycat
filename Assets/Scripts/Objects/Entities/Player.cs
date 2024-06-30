@@ -1,34 +1,40 @@
-﻿using Abilities;
-using ScriptableObjects;
+﻿using System.Collections;
+using DefaultNamespace.InputHandlers;
 using UnityEngine;
 using Zenject;
 
 namespace Objects.Entities
 {
-    public class Player: Entity
+    [RequireComponent(typeof(CharacterController))]
+    public class Player : Entity
     {
-        private Skill[] _skills;
+        [Header("Base Values")] 
 
-        public Skill[] Skills
+        private InputHandler _input;
+        public InputHandler InputHandler => _input;
+
+        public Vector3 moveDirection = Vector3.zero;
+
+        private CharacterController controller;
+        public CharacterController Controller => controller;
+
+        [Inject]
+        void Construct(InputHandler inputHander) //PlayerInfo info, InputHandler _inputHander
         {
-            get => _skills;
-            // set
-            // {
-            //     
-            // }
-            
+            _input = inputHander;
         }
         
-        [Inject]
-        void Construct(PlayerInfo info)
+
+        void Start()
         {
-            Transform transform = gameObject.transform;
-            
-            transform.position = info.position;
-            //transform.rotation = info.transform.rotation;
+            controller = GetComponent<CharacterController>();
+            //if (playerModel) playerModel = transform.Find("Graphics").gameObject;
+        }
 
-            _skills = info.Skills;
-
+        IEnumerator JumpAnim()
+        {
+            //JumpPattern.Evaluate();
+            return null;
         }
         
     }
