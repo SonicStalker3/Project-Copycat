@@ -14,12 +14,17 @@ namespace Resources.Abilities.BaseAbilities
         {
             if (player.Controller.isGrounded)
             {
-                if (player.InputHandler.JumpInput) player.moveDirection.y = jumpForce;
-                else player.moveDirection.y = 0;
+                JumpAction(player);
                 /*Debug.Log("Player Jumped");*/
             }
         } 
         protected override void OnActiveEntity(Entity entity) => Debug.Log("Entity Jumped");
+
+        public void JumpAction(Player player)
+        {
+            if (player.InputHandler.JumpInput) player.moveDirection.y = jumpForce;
+            else player.moveDirection.y = 0;
+        }
 
         private void OnValidate()
         {

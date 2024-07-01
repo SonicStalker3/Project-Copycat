@@ -12,11 +12,15 @@ namespace Skills
         [SerializeField]
         protected Entity Target;
 
-        private bool isPlayer;
+        public bool isPlayer { get; private set; }
 
         private void Start()
         { 
             Target = GetComponent<Entity>();
+            if (isPlayer)
+            {
+                Register(Target as Player);
+            }
         }
 
         [Inject]
@@ -25,7 +29,7 @@ namespace Skills
             Input = inputHander;
         }
 
-        protected virtual void Register(Player player)
+        private void Register(Player player)
         {
             player.AbilitiesList.Add(GetType().Name, this);
         }
@@ -39,7 +43,6 @@ namespace Skills
             }
 
             isPlayer = (Target as Player) != null;
-            //Register();
         }
         
         protected sealed override void OnTick()

@@ -48,6 +48,8 @@ namespace DefaultNamespace.InputHandlers
         public bool JumpInput => _inputHandler.actions["Jump"].triggered;
         public bool AttackBtn => _inputHandler.actions["Attack"].triggered;
         public bool InteractBtn => _inputHandler.actions["Interact"].triggered;
+        
+        public bool InventoryBtn => _inputHandler.actions["Inventory"].triggered;
         public bool MenuBtn => _inputHandler.actions["Menu"].triggered;
         
         public bool NextBtn => _inputHandler.actions["Next"].triggered;

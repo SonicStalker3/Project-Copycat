@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using DefaultNamespace.InputHandlers;
+﻿using DefaultNamespace.InputHandlers;
 using UnityEngine;
 using Zenject;
 
@@ -15,8 +14,8 @@ namespace Objects.Entities
 
         public Vector3 moveDirection = Vector3.zero;
 
-        private CharacterController controller;
-        public CharacterController Controller => controller;
+        private CharacterController _controller;
+        public CharacterController Controller => _controller;
 
         [Inject]
         void Construct(InputHandler inputHander) //PlayerInfo info, InputHandler _inputHander
@@ -27,15 +26,22 @@ namespace Objects.Entities
 
         void Start()
         {
-            controller = GetComponent<CharacterController>();
+            _controller = GetComponent<CharacterController>();
             //if (playerModel) playerModel = transform.Find("Graphics").gameObject;
         }
 
-        IEnumerator JumpAnim()
+        public void Test()
         {
-            //JumpPattern.Evaluate();
-            return null;
+            foreach (string key in AbilitiesList.Keys)
+            {
+                Debug.Log(key);
+            }
         }
-        
+
+        /*private void OnCollisionEnter(Collision other)
+        {
+            Debug.Log(other.collider.gameObject.name);
+        }*/
+
     }
 }

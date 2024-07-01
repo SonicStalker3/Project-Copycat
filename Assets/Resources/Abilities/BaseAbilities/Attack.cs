@@ -7,6 +7,7 @@ namespace Resources.Abilities.BaseAbilities
     public class Attack : Ability
     {
         [SerializeField] private Camera playerCamera;
+        [SerializeField] private int damage = 5;
         [Range(1, 20f)] public float maxAttackDistance = 5;
 
         void Start()
@@ -23,7 +24,9 @@ namespace Resources.Abilities.BaseAbilities
                 {
                     if (hit.distance <= maxAttackDistance)
                     {
-                        Debug.Log("Attacked");
+                        hit.collider.TryGetComponent(out Entity entity);
+                        entity?.GetDamage(damage);
+                        Debug.Log(hit.transform.gameObject.name);
                     }
                 }
             }
