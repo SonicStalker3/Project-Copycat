@@ -13,21 +13,16 @@ namespace Resources.Bootstrapers
         [SerializeField]
         private Save _save; 
         private PlayerInfo _playerInfo;
+        private GameObject root;
 
         public override void InstallBindings()
         {
-            LoadingControlSystem();
-            //LoadingSave();
+            LoadingSave();
             LoadingLevel();
         
 //            _save.PlayerPosition = new Vector3(100, 100, 5);
             //SaveManager.Save(_save);
             //WorldLoader world = Container.InstantiateComponent<WorldLoader>(gameObject);
-        }
-
-        void LoadingControlSystem()
-        {
-            //Container.Bind<InputHandler>().AsSingle().NonLazy();
         }
         
         void LoadingLevel()
@@ -40,7 +35,7 @@ namespace Resources.Bootstrapers
 
         void LoadingSave()
         {
-            _save = SaveManager.Load();
+            /*_save = SaveManager.Load();
             if (!_save)
             {
                 Debug.Log("Load");
@@ -58,7 +53,26 @@ namespace Resources.Bootstrapers
         
             Container.Bind<PlayerInfo>()
                 .FromInstance(_playerInfo)
-                .AsSingle();
+                .AsSingle();*/
+            
+            Container.Bind<QuestManager>().
+                FromNewComponentOnNewGameObject().
+                WithGameObjectName("NPC_Controller").
+                UnderTransformGroup("Infrasructure").
+                AsSingle().
+                NonLazy();
+            
+            /*Container.Bind<QuestManager>().
+                FromNewComponentOnNewGameObject().
+                WithGameObjectName("NPC_Controller").
+                UnderTransformGroup("Infrasructure").
+                AsSingle().
+                NonLazy();*/
+            
+            //TODO: Fix DialogManager
+            /*Container.Bind<DialogManager>().
+                FromNew().
+                AsSingle();*/
         }
     }
 }

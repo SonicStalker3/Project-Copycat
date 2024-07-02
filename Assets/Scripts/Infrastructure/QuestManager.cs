@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using Zenject;
 
 namespace Infrastructure
 {
@@ -7,6 +8,12 @@ namespace Infrastructure
         private Quest[] _completedQuests;
         private Quest[] _unCompletedQuests;
         private Quest _trackedQuest;
+
+        [Inject]
+        public void Construct()
+        {
+            //Debug.Log("Подключено");
+        }
     }
 
     [System.Serializable]

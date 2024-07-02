@@ -10,6 +10,8 @@ namespace Objects.Entities
     public class Entity : Object, IEntity
     {
         public Dictionary<string, Ability> AbilitiesList =  new Dictionary<string, Ability>();
+        private int race;
+        private float trustFactor;
 
         [SerializeField, Min(1)] private int MaxHealth = 1;
         public int Health { get; private set; } = 10;

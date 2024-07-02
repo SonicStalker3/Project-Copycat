@@ -12,7 +12,9 @@ namespace DefaultNamespace.InputHandlers
 
         //private static ActionMaps _actionMapEnum;
         private InputActionMap _currentActionMap;
-        private string _type = "Keyboard&Mouse";
+        private InputDevice currentDevice;
+        //private string _type = "Keyboard&Mouse";
+        
 
         public PlayerInput _inputHandler;
 
@@ -21,12 +23,23 @@ namespace DefaultNamespace.InputHandlers
         private InputActionMap DialogActionMap;
         private InputActionMap UIActionMap;
 
-        public float CursorSensitivity = 2;
+        public float CursorSensitivity = 2;        
 
         [Inject]
         InputHandler(PlayerInput inputHandler)
         {
             _inputHandler = inputHandler;
+            InputSystem.onDeviceChange += OnDeviceChange;
+        }
+        
+        private void OnDeviceChange(InputDevice device, InputDeviceChange change)
+        {
+            if (change == InputDeviceChange.Added)
+            {
+                // Get the last input device (current device)
+                currentDevice = device;
+                Debug.Log("Current device: " + currentDevice);
+            }
         }
 
         public void Test()
