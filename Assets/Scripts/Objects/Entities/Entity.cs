@@ -21,7 +21,7 @@ namespace Objects.Entities
         [Inject]
         void Construct()
         {
-            Debug.Log("Hi, all it's OK");
+            //Debug.Log("Hi, all it's OK");
             Health = MaxHealth;
         }
 

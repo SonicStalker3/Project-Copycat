@@ -1,19 +1,16 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
+﻿using UnityEngine;
 /*using Entities;
 using Interfaces.Entities;
 using Scriptable.Dialog;*/
-using UnityEngine;
-using Random = UnityEngine.Random;
 
-/// <summary>
-/// Dialog Panel Manager
-/// </summary>
-public class DialogManager : MonoBehaviour
+namespace Infrastructure
 {
-    /*[SerializeField,
+    /// <summary>
+    /// Dialog Panel Manager
+    /// </summary>
+    public class DialogManager : MonoBehaviour
+    {
+        /*[SerializeField,
      Tooltip("Сюда нужно положить корневой файл диалога('DialogObject'(Instance of Scriptable Object))")]
     private DialogObject dialog;
 
@@ -187,4 +184,5 @@ public class DialogManager : MonoBehaviour
     {
         StartCoroutine(nameof(DialogEnd));
     }*/
+    }
 }

@@ -25,7 +25,11 @@ namespace Resources.Abilities.BaseAbilities
                     if (hit.distance <= maxAttackDistance)
                     {
                         hit.collider.TryGetComponent(out Entity entity);
-                        entity?.GetDamage(damage);
+                        if (entity)
+                        {
+                            if(!entity.CompareTag("NPC")) entity.GetDamage(damage);
+                            else Debug.Log("It's Alias. Don't Damage");
+                        }
                         Debug.Log(hit.transform.gameObject.name);
                     }
                 }
